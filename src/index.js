@@ -6,10 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { render } from '@testing-library/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const title = "Planner"
-const not_title = "WRONG HEADING WRONG HEADING"
-
-root.render(title)
 
 // Create Title component -- ALL COMPONENTS MUST BE CAPITALIZED
 const Title = (props) => {
