@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const title = <h1>Planner</h1>
-const not_title = <h3>WRONG HEADING WRONG HEADING</h3>
+const title = "Planner"
+const not_title = "WRONG HEADING WRONG HEADING"
 
 root.render(title)
 
@@ -14,7 +14,7 @@ root.render(title)
 // Swap between title we want and title we DON'T want based on value of flag
 let flag = true
 const swap = () => {
-  const element = flag ? title : not_title
+  const element = <h1> Title: {flag ? title : not_title} </h1>
   flag = !flag
   root.render(element)
 }
