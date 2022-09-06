@@ -6,23 +6,67 @@ const Heading = (props) => {
 }
 
 // title for a task
-const TaskTitle = (props) => {
-  return <h1>{props.text}</h1> 
+const TitleInput = () => {
+  const [title, setTitle] = useState('')
+
+  const handleInput = (e) => {
+    setTitle(e.target.value)
+  }
+
+  return (
+    <input 
+      type="text"
+      id="title"
+      name="title"
+      placeholder="Enter Task Title"
+      onChange={handleInput}
+      value={title}
+    />
+  )
 }
 
 // elaborate on whatever task user wants to add
-const TaskDescription = (props) => {
-  return <p>{props.text}</p>
+const DescriptionInput = () => {
+  const [desc, setDesc] = useState('')
+
+  const handleInput = (e) => {
+    setDesc(e.target.value)
+  }
+
+  return (
+    <textarea 
+      type="text"
+      cols="50"
+      rows="10"
+      id="desc"
+      name="desc"
+      placeholder="Enter Task Description"
+      onChange={handleInput}
+      value={desc}
+    />
+  )
 }
+
+
 
 // interface where user can add their task
 const TaskInput = (props) => {
+  const [submitted, setSubmitted] = useState(0)
+  const handleSubmission = () => { 
+    setSubmitted(submitted + 1) 
+  }
   return (
-  <div id="TaskBox">
-    <TaskTitle text={props.title} />
-    <TaskDescription text={props.description} />
-    <button>Submit Task</button> 
-  </div>
+    <div>
+      <div id="TaskTitle">
+        <TitleInput />
+      </div>
+      <div id="TaskDescription">
+        <DescriptionInput />
+      </div>
+      <button onClick={handleSubmission}>Submit</button>
+      <p>Submitted Tasks: {submitted}</p>
+    </div>
+    
   )
 }
 
