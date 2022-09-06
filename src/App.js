@@ -55,6 +55,9 @@ const TaskInput = (props) => {
   const handleSubmission = () => { 
     setSubmitted(submitted + 1) 
   }
+  const handleRemoval = () => {
+    setSubmitted(0)
+  }
   return (
     <div>
       <div id="TaskTitle">
@@ -63,8 +66,12 @@ const TaskInput = (props) => {
       <div id="TaskDescription">
         <DescriptionInput />
       </div>
-      <button onClick={handleSubmission}>Submit</button>
-      <p>Submitted Tasks: {submitted}</p>
+      
+      <div id="buttons">
+        <button onClick={handleSubmission}>Submit</button>
+        <button onClick={handleRemoval}>Clear Tasks</button>
+        <p>Submitted Tasks: {submitted}</p>
+      </div>
     </div>
     
   )
