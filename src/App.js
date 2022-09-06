@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
 
-// Create Title component -- ALL COMPONENTS MUST BE CAPITALIZED
-const Title = (props) => {
+// Component that will act as title of page
+const Heading = (props) => {
+  return (<h1>props.pageName</h1>)
+}
+
+// title for a task
+const TaskTitle = (props) => {
   return <h1>{props.text}</h1> 
 }
 
-// Create Description component -- ALL COMPONENTS MUST BE CAPITALIZED
-const Description = (props) => {
+// elaborate on whatever task user wants to add
+const TaskDescription = (props) => {
   return <p>{props.text}</p>
 }
 
-// Create Task component -- made up of a title and a description
-const Task = (props) => {
+// interface where user can add their task
+const TaskInput = (props) => {
   return (
   <div id="TaskBox">
-    <Title text={props.titleText} />
-    <Description text={props.descriptionText} />
+    <TaskTitle text={props.title} />
+    <TaskDescription text={props.description} />
+    <button>Submit Task</button> 
   </div>
   )
 }
@@ -27,7 +32,7 @@ const description = "This is a test component that uses small components to buil
 
 function App() {
   return (
-  <Task titleText={heading} descriptionText={description} />
+  <TaskInput title={heading} description={description} />
   )
 }
 
