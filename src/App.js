@@ -1,8 +1,45 @@
 import { useState } from "react"
 
+const App = () => {
+  return (
+    <div id="page">
+      <Heading />  
+      <TaskInput />
+    </div>
+  )
+}
+
 // Component that will act as title of page
 const Heading = (props) => {
   return (<h1>props.pageName</h1>)
+}
+
+// interface where user can add their task
+const TaskInput = () => {
+  const [submitted, setSubmitted] = useState(0)
+  const handleSubmission = () => { 
+    setSubmitted(submitted + 1) 
+  }
+  const handleRemoval = () => {
+    setSubmitted(0)
+  }
+  return (
+    <div>
+      <div id="TaskTitle">
+        <TitleInput />
+      </div>
+      <div id="TaskDescription">
+        <DescriptionInput />
+      </div>
+      
+      <div id="buttons">
+        <button onClick={handleSubmission}>Submit</button>
+        <button onClick={handleRemoval}>Clear Tasks</button>
+        <p>Submitted Tasks: {submitted}</p>
+      </div>
+    </div>
+    
+  )
 }
 
 // title for a task
@@ -47,41 +84,5 @@ const DescriptionInput = () => {
   )
 }
 
-
-
-// interface where user can add their task
-const TaskInput = () => {
-  const [submitted, setSubmitted] = useState(0)
-  const handleSubmission = () => { 
-    setSubmitted(submitted + 1) 
-  }
-  const handleRemoval = () => {
-    setSubmitted(0)
-  }
-  return (
-    <div>
-      <div id="TaskTitle">
-        <TitleInput />
-      </div>
-      <div id="TaskDescription">
-        <DescriptionInput />
-      </div>
-      
-      <div id="buttons">
-        <button onClick={handleSubmission}>Submit</button>
-        <button onClick={handleRemoval}>Clear Tasks</button>
-        <p>Submitted Tasks: {submitted}</p>
-      </div>
-    </div>
-    
-  )
-}
-
-
-function App() {
-  return (
-  <TaskInput />
-  )
-}
 
 export default App;
