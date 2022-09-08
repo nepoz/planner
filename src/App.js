@@ -50,7 +50,7 @@ const DescriptionInput = () => {
 
 
 // interface where user can add their task
-const TaskInput = (props) => {
+const TaskInput = () => {
   const [submitted, setSubmitted] = useState(0)
   const handleSubmission = () => { 
     setSubmitted(submitted + 1) 
@@ -77,13 +77,10 @@ const TaskInput = (props) => {
   )
 }
 
-// create an element -- a single task. Remember empty JSX tags may be closed as in XML
-const heading = "Planner Test"
-const description = "This is a test component that uses small components to build a bigger component!"
 
 function App() {
   return (
-  <TaskInput title={heading} description={description} />
+  <TaskInput />
   )
 }
 
